@@ -39,6 +39,10 @@ namespace WebOpdracht2._1.Controllers
             Studenten.Add(jan);
             Studenten.Add(klaas);
 
+            var studentenList = (from student in Studenten
+                                where student.achternaam.StartsWith(voorletter)
+                                select student).ToList();
+            /*
             foreach (Student s in Studenten.ToList())
             {
                 if (!s.achternaam.StartsWith(voorletter))
@@ -46,8 +50,9 @@ namespace WebOpdracht2._1.Controllers
                     Studenten.Remove(s);
                 }
             }
-
-            return View(Studenten);
+            */
+            ViewData["voorletter"] = voorletter;
+            return View(studentenList);
         }
 
     }

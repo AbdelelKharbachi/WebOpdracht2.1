@@ -1,8 +1,9 @@
 ﻿@model List<Student>
 @foreach (Student s in Model)
 {
+    <h2>Voorletter: @ViewData["voorletter"]</h2>
     <h3>De volgende studenten zijn gevonden:</h3>
-    <p>
+    <h4>
         Student @s.voornaam @s.achternaam
-    </p>
+    </h4>
 }
